@@ -37,8 +37,29 @@ $("#add-movie").on("click", function(event) {
 
   // Calling renderButtons which handles the processing of our movie array
   renderButtons();
+  $("#movie-input").val("")
 
 });
+
+//This function prints JSON data for the appropriate movie
+function displayMovieInfo (event){
+  var moviename = event.target.dataset.name
+  console.log(moviename)
+
+  var queryURL = "https://www.omdbapi.com/?t=" + moviename + "&apikey=119251a4";
+
+  // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    $("#movie-view").text(JSON.stringify(response))
+  })
+}
+
+$("#buttons-view").on("click", function(event) {
+  displayMovieInfo(event)
+})
 
 // Calling the renderButtons function to display the initial buttons
 renderButtons();

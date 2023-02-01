@@ -25,7 +25,8 @@
    const newmovie = $('#movie-input').val().trim()
    movies.push(newmovie)
    renderButtons()
-
+   $('#movie-input').val("")
+   
  });
 
  // Calling the renderButtons function to display the initial list of movies
