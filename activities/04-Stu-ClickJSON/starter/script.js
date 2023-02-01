@@ -57,7 +57,7 @@ function displayMovieInfo (event){
   })
 }
 
-$("#buttons-view").on("click", function(event) {
+$("#buttons-view").on("click",".movie", function(event) {
   displayMovieInfo(event)
 })
 

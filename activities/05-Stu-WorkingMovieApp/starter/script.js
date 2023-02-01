@@ -12,9 +12,15 @@
      url: queryURL,
      method: "GET"
    }).then(function(response) {
-
-     // YOUR CODE GOES HERE!!!
-
+    const movieContainer = $("<div></div>")
+    const movieTitle = $("<h2></h2>").text(response.Title)
+    const moviePlot =$("<p></p>").text(response.Plot)
+    const moviePoster = $("<img>").attr("src",response.Poster)
+         // YOUR CODE GOES HERE!!!
+     $(movieContainer).append(movieTitle)
+     $(movieContainer).append(moviePlot)
+     $(movieContainer).prepend(moviePoster)
+     $("#movies-view").prepend(movieContainer)
    });
 
  }
