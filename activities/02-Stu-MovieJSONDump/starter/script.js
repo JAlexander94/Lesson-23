@@ -9,9 +9,17 @@
   var movie = $("#movie-input").val();
 
   // Here we construct our URL
-  var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+  var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=119251a4";
 
   // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    $("#movie-view").text(JSON.stringify(response))
+  })
+
+
   // and display it in the div with an id of movie-view
 
   // YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE
